@@ -1,0 +1,22 @@
+page-home {
+  @mixin home-img($width, $height) {
+    width: $width;
+    height: $height;
+  }
+
+  .image-view {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+
+    img {
+      @include home-img(50vw !important, 28vh);
+    }
+  }
+  .post-view {
+
+  }
+
+}

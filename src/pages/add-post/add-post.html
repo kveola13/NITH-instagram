@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar color="blueish">
+    <ion-title>AddPost</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-input [(ngModel)]="postText" placeholder="Add new post"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button (click)="openCamera()">Capture image</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="findGeolocation()">Fetch GPS</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button (click)="addPost()">Add new post</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <p><b>Location:</b> {{coordinationText}}</p>
+    </ion-row>
+    <ion-row>
+      <img *ngIf="previewImage.length > 0" style="height: 300px" [src]="'data:image/jpeg;base64,' + previewImage"/>
+    </ion-row>
+  </ion-grid>
+  <!--<ion-row end>-->
+    <!--<ion-input [(ngModel)]="coordinationText" placeholder="coordinates"></ion-input>-->
+  <!--</ion-row>-->
+</ion-content>

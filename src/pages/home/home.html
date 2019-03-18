@@ -1,0 +1,37 @@
+<ion-header>
+  <!--Test for segment-->
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="icons" color="secondary">
+      <ion-segment-button value="camera">
+        <ion-icon name="camera"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="bookmark">
+        <ion-icon name="bookmark"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <!--Remove after test-->
+  <ion-navbar color="blueish">
+    <ion-title>
+      Fireplace home
+    </ion-title>
+    <ion-buttons end>
+      <button icon-only ion-button (click)="goToAddPostPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button icon-only ion-button (click)="logOut()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="image-view" no-lines>
+    <img src="{{post.imageURL}}" *ngFor="let post of posts | async" (click)="goToDetailsPage(post)">
+    <!--<ion-item *ngFor="let post of posts | async" (click)="goToDetailsPage(post)">-->
+    <!--&lt;!&ndash;async must be used for observables, else it will fail&ndash;&gt;-->
+    <!--{{post.body}}-->
+    <!--</ion-item>-->
+  </ion-list>
+</ion-content>

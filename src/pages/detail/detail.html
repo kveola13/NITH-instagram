@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{post.body}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      {{post.body}}
+      : is the name
+    </ion-item>
+    <ion-item>
+      if the post has a .imageurl:
+      <img src="{{post.imageURL}}"/>
+    </ion-item>
+    <ion-item *ngFor="let comment of comments | async">
+      comment:
+      {{comment.body}}
+    </ion-item>
+  </ion-list>
+
+  <ion-input [(ngModel)]="commentInput" placeholder="Enter comment">
+  </ion-input>
+  <button ion-button (click)="addComment()">
+    Add comment
+  </button>
+</ion-content>
